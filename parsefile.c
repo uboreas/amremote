@@ -51,8 +51,8 @@ static void trim_line_data(char *line_data_buf) {
 }
 
 static int remote_config_set(char *name, char *value, remote_config_t *config) {
-    unsigned int i;
-    unsigned int *config_para = (unsigned int*) config + 4;
+    u_int32_t i;
+    u_int32_t *config_para=(u_int32_t*)&config->repeat_delay;
 
     for (i = 0; i < ARRAY_SIZE(config_item); i++) {
         if (strcmp(config_item[i], name) == 0) {
@@ -74,14 +74,14 @@ enum {
 	FACTORYCUSTMAP_LEVEL
 };
 
-extern unsigned short adc_map[2];
-extern unsigned int adc_move_enable;
+extern u_int32_t adc_map[2];
+extern u_int32_t adc_move_enable;
 
 int get_config_from_file(FILE *fp, remote_config_t *remote) {
     char line_data_buf[CC_MAX_LINE_LEN];
     char *name = NULL;
     char *value;
-    unsigned short ircode, keycode,adccode,index,custcode;
+    u_int32_t ircode, keycode,adccode,index,custcode;
     unsigned char parse_flag = CONFIG_LEVEL;
 
     while (fgets(line_data_buf, CC_MAX_LINE_LEN, fp)) {

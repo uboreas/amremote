@@ -1,114 +1,115 @@
 #ifndef  _REMOTE_CONFIG_H
 #define  _REMOTE_CONFIG_H
 
+#include <sys/types.h>
 #include <asm/ioctl.h>
-#define   REMOTE_IOC_UNFCODE_CONFIG              _IOW_BAD('I',12,sizeof(short))
-#define   REMOTE_IOC_INFCODE_CONFIG              _IOW_BAD('I',13,sizeof(short))
-#define   REMOTE_IOC_RESET_KEY_MAPPING	    _IOW_BAD('I',3,sizeof(short))
-#define   REMOTE_IOC_SET_KEY_MAPPING		    _IOW_BAD('I',4,sizeof(short))
-#define   REMOTE_IOC_SET_MOUSE_MAPPING	    _IOW_BAD('I',5,sizeof(short))
-#define   REMOTE_IOC_SET_REPEAT_DELAY		    _IOW_BAD('I',6,sizeof(short))
-#define   REMOTE_IOC_SET_REPEAT_PERIOD	    _IOW_BAD('I',7,sizeof(short))
+#define   REMOTE_IOC_UNFCODE_CONFIG              _IOW('I',12,u_int32_t)
+#define   REMOTE_IOC_INFCODE_CONFIG              _IOW('I',13,u_int32_t)
+#define   REMOTE_IOC_RESET_KEY_MAPPING	    _IOW('I',3,u_int32_t)
+#define   REMOTE_IOC_SET_KEY_MAPPING		    _IOW('I',4,u_int32_t)
+#define   REMOTE_IOC_SET_MOUSE_MAPPING	    _IOW('I',5,u_int32_t)
+#define   REMOTE_IOC_SET_REPEAT_DELAY		    _IOW('I',6,u_int32_t)
+#define   REMOTE_IOC_SET_REPEAT_PERIOD	    _IOW('I',7,u_int32_t)
 
-#define   REMOTE_IOC_SET_REPEAT_ENABLE		_IOW_BAD('I',8,sizeof(short))
-#define	REMOTE_IOC_SET_DEBUG_ENABLE			_IOW_BAD('I',9,sizeof(short)) 
-#define	REMOTE_IOC_SET_MODE					_IOW_BAD('I',10,sizeof(short)) 
-#define	REMOTE_IOC_SET_MOUSE_SPEED			_IOW_BAD('I',11,sizeof(short))
+#define   REMOTE_IOC_SET_REPEAT_ENABLE		_IOW('I',8,u_int32_t)
+#define	REMOTE_IOC_SET_DEBUG_ENABLE			_IOW('I',9,u_int32_t)
+#define	REMOTE_IOC_SET_MODE					_IOW('I',10,u_int32_t)
+#define	REMOTE_IOC_SET_MOUSE_SPEED			_IOW('I',11,u_int32_t)
 
-#define	REMOTE_IOC_SET_REPEAT_KEY_MAPPING       _IOW_BAD('I',20,sizeof(short))
-#define   REMOTE_IOC_SET_RELEASE_FDELAY		_IOW_BAD('I',97,sizeof(short))
-#define   REMOTE_IOC_SET_RELEASE_SDELAY		_IOW_BAD('I',98,sizeof(short))
-#define   REMOTE_IOC_SET_RELEASE_DELAY		_IOW_BAD('I',99,sizeof(short))
-#define   REMOTE_IOC_SET_CUSTOMCODE   			_IOW_BAD('I',100,sizeof(short))
+#define	REMOTE_IOC_SET_REPEAT_KEY_MAPPING       _IOW('I',20,u_int32_t)
+#define   REMOTE_IOC_SET_RELEASE_FDELAY		_IOW('I',97,u_int32_t)
+#define   REMOTE_IOC_SET_RELEASE_SDELAY		_IOW('I',98,u_int32_t)
+#define   REMOTE_IOC_SET_RELEASE_DELAY		_IOW('I',99,u_int32_t)
+#define   REMOTE_IOC_SET_CUSTOMCODE   			_IOW('I',100,u_int32_t)
 //reg
-#define   REMOTE_IOC_SET_REG_BASE_GEN			_IOW_BAD('I',101,sizeof(short))
-#define   REMOTE_IOC_SET_REG_CONTROL			_IOW_BAD('I',102,sizeof(short))
-#define   REMOTE_IOC_SET_REG_LEADER_ACT 		_IOW_BAD('I',103,sizeof(short))
-#define   REMOTE_IOC_SET_REG_LEADER_IDLE 		_IOW_BAD('I',104,sizeof(short))
-#define   REMOTE_IOC_SET_REG_REPEAT_LEADER 	_IOW_BAD('I',105,sizeof(short))
-#define   REMOTE_IOC_SET_REG_BIT0_TIME		 _IOW_BAD('I',106,sizeof(short))
+#define   REMOTE_IOC_SET_REG_BASE_GEN			_IOW('I',101,u_int32_t)
+#define   REMOTE_IOC_SET_REG_CONTROL			_IOW('I',102,u_int32_t)
+#define   REMOTE_IOC_SET_REG_LEADER_ACT 		_IOW('I',103,u_int32_t)
+#define   REMOTE_IOC_SET_REG_LEADER_IDLE 		_IOW('I',104,u_int32_t)
+#define   REMOTE_IOC_SET_REG_REPEAT_LEADER 	_IOW('I',105,u_int32_t)
+#define   REMOTE_IOC_SET_REG_BIT0_TIME		 _IOW('I',106,u_int32_t)
 
 //sw
-#define   REMOTE_IOC_SET_BIT_COUNT			 	_IOW_BAD('I',107,sizeof(short))
-#define   REMOTE_IOC_SET_TW_LEADER_ACT		_IOW_BAD('I',108,sizeof(short))
-#define   REMOTE_IOC_SET_TW_BIT0_TIME			_IOW_BAD('I',109,sizeof(short))
-#define   REMOTE_IOC_SET_TW_BIT1_TIME			_IOW_BAD('I',110,sizeof(short))
-#define   REMOTE_IOC_SET_TW_REPEATE_LEADER	_IOW_BAD('I',111,sizeof(short))
+#define   REMOTE_IOC_SET_BIT_COUNT			 	_IOW('I',107,u_int32_t)
+#define   REMOTE_IOC_SET_TW_LEADER_ACT		_IOW('I',108,u_int32_t)
+#define   REMOTE_IOC_SET_TW_BIT0_TIME			_IOW('I',109,u_int32_t)
+#define   REMOTE_IOC_SET_TW_BIT1_TIME			_IOW('I',110,u_int32_t)
+#define   REMOTE_IOC_SET_TW_REPEATE_LEADER	_IOW('I',111,u_int32_t)
 
-#define   REMOTE_IOC_GET_TW_LEADER_ACT		_IOR_BAD('I',112,sizeof(short))
-#define   REMOTE_IOC_GET_TW_BIT0_TIME			_IOR_BAD('I',113,sizeof(short))
-#define   REMOTE_IOC_GET_TW_BIT1_TIME			_IOR_BAD('I',114,sizeof(short))
-#define   REMOTE_IOC_GET_TW_REPEATE_LEADER	_IOR_BAD('I',115,sizeof(short))
+#define   REMOTE_IOC_GET_TW_LEADER_ACT		_IOR_BAD('I',112,u_int32_t)
+#define   REMOTE_IOC_GET_TW_BIT0_TIME			_IOR_BAD('I',113,u_int32_t)
+#define   REMOTE_IOC_GET_TW_BIT1_TIME			_IOR_BAD('I',114,u_int32_t)
+#define   REMOTE_IOC_GET_TW_REPEATE_LEADER	_IOR_BAD('I',115,u_int32_t)
 
 
-#define   REMOTE_IOC_GET_REG_BASE_GEN			_IOR_BAD('I',121,sizeof(short))
-#define   REMOTE_IOC_GET_REG_CONTROL			_IOR_BAD('I',122,sizeof(short))
-#define   REMOTE_IOC_GET_REG_LEADER_ACT 		_IOR_BAD('I',123,sizeof(short))
-#define   REMOTE_IOC_GET_REG_LEADER_IDLE 		_IOR_BAD('I',124,sizeof(short))
-#define   REMOTE_IOC_GET_REG_REPEAT_LEADER 	_IOR_BAD('I',125,sizeof(short))
-#define   REMOTE_IOC_GET_REG_BIT0_TIME		 	_IOR_BAD('I',126,sizeof(short))
-#define   REMOTE_IOC_GET_REG_FRAME_DATA		_IOR_BAD('I',127,sizeof(short))
-#define   REMOTE_IOC_GET_REG_FRAME_STATUS	_IOR_BAD('I',128,sizeof(short))
+#define   REMOTE_IOC_GET_REG_BASE_GEN			_IOR_BAD('I',121,u_int32_t)
+#define   REMOTE_IOC_GET_REG_CONTROL			_IOR_BAD('I',122,u_int32_t)
+#define   REMOTE_IOC_GET_REG_LEADER_ACT 		_IOR_BAD('I',123,u_int32_t)
+#define   REMOTE_IOC_GET_REG_LEADER_IDLE 		_IOR_BAD('I',124,u_int32_t)
+#define   REMOTE_IOC_GET_REG_REPEAT_LEADER 	_IOR_BAD('I',125,u_int32_t)
+#define   REMOTE_IOC_GET_REG_BIT0_TIME		 	_IOR_BAD('I',126,u_int32_t)
+#define   REMOTE_IOC_GET_REG_FRAME_DATA		_IOR_BAD('I',127,u_int32_t)
+#define   REMOTE_IOC_GET_REG_FRAME_STATUS	_IOR_BAD('I',128,u_int32_t)
 
-#define   REMOTE_IOC_SET_FN_KEY_SCANCODE     _IOW_BAD('I', 131, sizeof(short)) 
-#define   REMOTE_IOC_SET_LEFT_KEY_SCANCODE   _IOW_BAD('I', 132, sizeof(short))
-#define   REMOTE_IOC_SET_RIGHT_KEY_SCANCODE  _IOW_BAD('I', 133, sizeof(short))
-#define   REMOTE_IOC_SET_UP_KEY_SCANCODE     _IOW_BAD('I', 134, sizeof(short))
-#define   REMOTE_IOC_SET_DOWN_KEY_SCANCODE   _IOW_BAD('I', 135, sizeof(short))
-#define   REMOTE_IOC_SET_OK_KEY_SCANCODE     _IOW_BAD('I', 136, sizeof(short))
-#define   REMOTE_IOC_SET_PAGEUP_KEY_SCANCODE _IOW_BAD('I', 137, sizeof(short))
-#define   REMOTE_IOC_SET_PAGEDOWN_KEY_SCANCODE _IOW_BAD('I', 138, sizeof(short))
+#define   REMOTE_IOC_SET_FN_KEY_SCANCODE     _IOW('I', 131, u_int32_t)
+#define   REMOTE_IOC_SET_LEFT_KEY_SCANCODE   _IOW('I', 132, u_int32_t)
+#define   REMOTE_IOC_SET_RIGHT_KEY_SCANCODE  _IOW('I', 133, u_int32_t)
+#define   REMOTE_IOC_SET_UP_KEY_SCANCODE     _IOW('I', 134, u_int32_t)
+#define   REMOTE_IOC_SET_DOWN_KEY_SCANCODE   _IOW('I', 135, u_int32_t)
+#define   REMOTE_IOC_SET_OK_KEY_SCANCODE     _IOW('I', 136, u_int32_t)
+#define   REMOTE_IOC_SET_PAGEUP_KEY_SCANCODE _IOW('I', 137, u_int32_t)
+#define   REMOTE_IOC_SET_PAGEDOWN_KEY_SCANCODE _IOW('I', 138, u_int32_t)
 
-#define   REMOTE_IOC_SET_TW_BIT2_TIME			_IOW_BAD('I',129,sizeof(short))
-#define   REMOTE_IOC_SET_TW_BIT3_TIME			_IOW_BAD('I',130,sizeof(short))
-#define   REMOTE_IOC_SET_FACTORY_CUSTOMCODE     _IOW_BAD('I',139,sizeof(short))
+#define   REMOTE_IOC_SET_TW_BIT2_TIME			_IOW('I',129,u_int32_t)
+#define   REMOTE_IOC_SET_TW_BIT3_TIME			_IOW('I',130,u_int32_t)
+#define   REMOTE_IOC_SET_FACTORY_CUSTOMCODE     _IOW('I',139,u_int32_t)
 #define   ADC_KP_MAGIC 'P'
-#define   KEY_IOC_SET_MOVE_MAP        		_IOW_BAD(ADC_KP_MAGIC,0X02,int)
-#define   KEY_IOC_SET_MOVE_ENABLE		  	_IOW_BAD(ADC_KP_MAGIC,0X03,int)
+#define   KEY_IOC_SET_MOVE_MAP        		_IOW(ADC_KP_MAGIC,0X02,u_int32_t)
+#define   KEY_IOC_SET_MOVE_ENABLE		  	_IOW(ADC_KP_MAGIC,0X03,u_int32_t)
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
 typedef   struct{
-       unsigned short *key_map;
-       unsigned short *repeat_key_map;
-       unsigned short *mouse_map;
-	   unsigned int *factory_customercode_map;
-       unsigned int repeat_delay;
-       unsigned int repeat_peroid;
-       unsigned int work_mode ;
-       unsigned int mouse_speed;
-	unsigned int repeat_enable;
-	unsigned int factory_infcode;
-	unsigned int factory_unfcode;
-	unsigned int factory_code;
-	unsigned int release_delay;
-	unsigned int release_fdelay;
-	unsigned int release_sdelay;
-	unsigned int debug_enable;
+      u_int32_t *key_map;
+       u_int32_t *repeat_key_map;
+       u_int32_t *mouse_map;
+       u_int32_t *factory_customercode_map;
+       u_int32_t repeat_delay;
+       u_int32_t repeat_peroid;
+       u_int32_t work_mode ;
+       u_int32_t mouse_speed;
+	u_int32_t repeat_enable;
+	u_int32_t factory_infcode;
+	u_int32_t factory_unfcode;
+	u_int32_t factory_code;
+	u_int32_t release_delay;
+	u_int32_t release_fdelay;
+	u_int32_t release_sdelay;
+	u_int32_t debug_enable;
 //sw
-	unsigned int 	bit_count;
-	unsigned int 	tw_leader_act;
-	unsigned int 	tw_bit0;
-	unsigned int   tw_bit1;
-	unsigned int   tw_bit2;
-	unsigned int   tw_bit3;
-	unsigned int 	tw_repeat_leader;
+	u_int32_t 	bit_count;
+	u_int32_t 	tw_leader_act;
+	u_int32_t 	tw_bit0;
+	u_int32_t   tw_bit1;
+	u_int32_t   tw_bit2;
+	u_int32_t   tw_bit3;
+	u_int32_t 	tw_repeat_leader;
 //reg
-	unsigned int  reg_base_gen;
-	unsigned int  reg_control;
-	unsigned int  reg_leader_act;
-	unsigned int  reg_leader_idle;
-	unsigned int  reg_repeat_leader;
-	unsigned int  reg_bit0_time;
+	u_int32_t  reg_base_gen;
+	u_int32_t  reg_control;
+	u_int32_t  reg_leader_act;
+	u_int32_t  reg_leader_idle;
+	u_int32_t  reg_repeat_leader;
+	u_int32_t  reg_bit0_time;
 
-	unsigned int fn_key_scancode;
-        unsigned int left_key_scancode;
-	unsigned int right_key_scancode;
-	unsigned int up_key_scancode;
-	unsigned int down_key_scancode;
-	unsigned int ok_key_scancode;
-	unsigned int pageup_key_scancode;
-	unsigned int pagedown_key_scancode;
+	u_int32_t fn_key_scancode;
+        u_int32_t left_key_scancode;
+	u_int32_t right_key_scancode;
+	u_int32_t up_key_scancode;
+	u_int32_t down_key_scancode;
+	u_int32_t ok_key_scancode;
+	u_int32_t pageup_key_scancode;
+	u_int32_t pagedown_key_scancode;
 }remote_config_t;
 
 //these string must in this order and sync with struct remote_config_t
@@ -151,7 +152,7 @@ static char*  config_item[33]={
     "pagedown_key_scancode",
 };
 
-static int remote_ioc_table[33]={
+static u_int32_t remote_ioc_table[33]={
     REMOTE_IOC_SET_REPEAT_DELAY,
     REMOTE_IOC_SET_REPEAT_PERIOD,
     REMOTE_IOC_SET_MODE,

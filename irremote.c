@@ -9,10 +9,10 @@
 #define DEVICE_NAME "/dev/amremote"
 #define DEVICE_KP  "/dev/am_adc_kpd"
 
-unsigned short key_map[256], repeat_key_map[256], mouse_map[4];
-unsigned int factory_customercode_map[FACTCUSTCODE_MAX];
+u_int32_t key_map[256], repeat_key_map[256], mouse_map[4];
+u_int32_t factory_customercode_map[FACTCUSTCODE_MAX];
 
-unsigned short default_key_map[256] = {
+u_int32_t default_key_map[256] = {
 KEY_0, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, /*0~7*/
 KEY_8, KEY_9, KEY_BACK, KEY_UP, KEY_BACKSPACE, KEY_ENTER, KEY_DOWN, KEY_MENU, /*8~f*/
 KEY_LEFT, KEY_RIGHT, KEY_R, KEY_S, KEY_U, KEY_G, KEY_K, KEY_L, /*10~17*/
@@ -50,13 +50,13 @@ KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERV
 KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED, KEY_RESERVED /*f8~ff*/
 };
 
-unsigned short default_mouse_map[4] = {
+u_int32_t default_mouse_map[4] = {
  //0x10, 0x11, 0x0b, 0x0e 
  0xffff, 0xffff, 0xffff, 0xffff
 };
 
-unsigned short adc_map[2] ={0xffff, 0xffff};//left,right
-unsigned int adc_move_enable = 0;
+u_int32_t adc_map[2] ={0xffff, 0xffff};//left,right
+u_int32_t adc_move_enable = 0;
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 
@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
     FILE *fp;
     int ret, i;
     int device_fd;
-    unsigned int val;
+    u_int32_t val;
 
     for(i =0; i < 256; i++)
         key_map[i] = KEY_RESERVED;
@@ -90,8 +90,9 @@ int main(int argc, char* argv[])
         return -2;
         }
     if(argc < 2){
-        remote->factory_code = 0x40400001;
-        remote->work_mode = 1;
+        printf("default values\n");
+        remote->factory_code = 0xfe010001;
+        remote->work_mode = 0;
         remote->repeat_enable = 1;
         remote->release_delay = 150;
         remote->debug_enable = 1;
